@@ -14,12 +14,22 @@
 
 @implementation ViewController
 
-- (void)viewDidLoad {
+- (void) viewDidLoad {
     [super viewDidLoad];
+    
     // Do any additional setup after loading the view, typically from a nib.
+    self.oreoScroll.delegate = self;
+    self.oreoImg.contentMode = UIViewContentModeScaleAspectFit;
+    self.oreoImg.image = [UIImage imageNamed:@"豆花妹1"];
 }
 
-- (void)didReceiveMemoryWarning {
+- (UIView *) viewForZoomingInScrollView:(UIScrollView *) scrollView
+{
+    return [scrollView.subviews objectAtIndex:0];
+}
+
+
+- (void) didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
